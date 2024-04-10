@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  utente: string = "";
-
-  titolo: string = "Benvenuti in Alphashop";
-  sottotitolo: string = "Visualizza le offerte del giorno";
+  utente = sessionStorage.getItem("Utente");
+  
+  titolo: string = "Benvenuto " + this.utente +" in Betashop";
+  sottotitolo: string = "Qui puoi visualizzare le offerte del giorno";
 
   constructor(private route: ActivatedRoute) { }
 
