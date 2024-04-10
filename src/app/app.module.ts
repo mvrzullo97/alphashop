@@ -8,21 +8,23 @@ import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ArticoliComponent } from './articoli/articoli.component';
 import { ErrorComponent } from './error/error.component';
+import { CoreModule } from "./core/core.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    WelcomeComponent,
-    ArticoliComponent,
-    ErrorComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        WelcomeComponent,
+        ArticoliComponent,
+        ErrorComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        CoreModule
+    ]
 })
 export class AppModule { }
