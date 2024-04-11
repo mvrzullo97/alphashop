@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ArticoliComponent } from './articoli/articoli.component';
-import { ErrorComponent } from './error/error.component';
+
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ArticoliComponent } from './pages/articoli/articoli.component';
+import { ErrorComponent } from './pages/error/error.component';
 import { CoreModule } from "./core/core.module";
 import { FormsModule } from '@angular/forms';
-import { LogoutComponent } from './logout/logout.component';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
     declarations: [
