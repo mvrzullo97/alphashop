@@ -21,5 +21,9 @@ export class AuthappService {
 
   isLogged = () : boolean => (sessionStorage.getItem("Utente")) ? true : false;
 
+  clearUser = () : void => sessionStorage.removeItem("Utente");
+
+  clearAll = () : void => sessionStorage.clear();
+
 
 }

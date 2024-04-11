@@ -9,6 +9,7 @@ import { ArticoliComponent } from './articoli/articoli.component';
 import { ErrorComponent } from './error/error.component';
 import { CoreModule } from "./core/core.module";
 import { FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
         LoginComponent,
         WelcomeComponent,
         ArticoliComponent,
-        ErrorComponent
+        ErrorComponent,
+        LogoutComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
