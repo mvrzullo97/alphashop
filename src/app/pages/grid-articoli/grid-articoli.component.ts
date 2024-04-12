@@ -18,6 +18,13 @@ export class GridArticoliComponent implements OnInit {
     console.log(this.articoli$);
   }
 
+  handleEdit = (codart: string) => {
+    console.log("Cliccato tasto modifica del codice " + codart);
+  }
+
+  handleDelete = (codart: string) => {
+    console.log("Cliccato tasto elimina del codice " + codart);
+  }
 
 
 

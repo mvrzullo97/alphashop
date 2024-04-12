@@ -40,6 +40,8 @@
           <app-articoli-card
           *ngFor="let articolo of articoli$"
           [articolo] = "articolo"
+          (delete) = "handleDelete($event)"
+          (edit) = "handleEdit($event)"
           ></app-articoli-card>
           
         </div>  
