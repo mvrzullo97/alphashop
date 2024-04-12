@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
+import { ArticoliCardComponent } from './components/articoli-card/articoli-card.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.compo
         ArticoliComponent,
         ErrorComponent,
         LogoutComponent,
-        GridArticoliComponent
+        GridArticoliComponent,
+        ArticoliCardComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
