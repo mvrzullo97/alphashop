@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ArticoliComponent } from './articoli/articoli.component';
-import { ErrorComponent } from './error/error.component';
-import { LogoutComponent } from './logout/logout.component';
+import { LoginComponent } from './pages/login/login.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ArticoliComponent } from './pages/articoli/articoli.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 import { RouteGuardService } from 'src/services/route-guard.service';
+import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
-  /* aggiungo controlli per verificare che l'utente sia loggato correttamente prima di accedere alla pagina in questione */
+  /* aggiungo RouteGuardService per verificare che l'utente sia loggato correttamente prima di accedere alla pagina in questione */
   {path: 'welcome/:userId', component: WelcomeComponent, canActivate:[RouteGuardService]},
   {path: 'articoli', component: ArticoliComponent, canActivate:[RouteGuardService]},
+  {path: 'articoli/grid', component: GridArticoliComponent, canActivate:[RouteGuardService]},
   {path: 'logout', component: LogoutComponent},
   
   {path:'**', component: ErrorComponent}
