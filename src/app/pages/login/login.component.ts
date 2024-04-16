@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthappService } from 'src/services/authapp.service';
+import { AuthappService } from 'src/app/core/services/authapp.service';
 import { Router } from '@angular/router';
 
 @Component({

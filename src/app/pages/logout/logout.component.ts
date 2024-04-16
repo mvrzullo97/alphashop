@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthappService } from 'src/services/authapp.service';
+import { AuthappService } from 'src/app/core/services/authapp.service';
 
 @Component({
   selector: 'app-logout',
@@ -14,7 +14,7 @@ export class LogoutComponent implements OnInit {
 
 
   ngOnInit(): void {
-   this.user = sessionStorage.getItem("Utente");
+    this.user = sessionStorage.getItem("Utente");
     this.BasicAuth.clearAll();
   }
 

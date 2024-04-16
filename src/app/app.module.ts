@@ -13,6 +13,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
 import { ArticoliCardComponent } from './components/articoli-card/articoli-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { ArticoliCardComponent } from './components/articoli-card/articoli-card.
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        CoreModule
+        CoreModule,
+        HttpClientModule
     ]
 })
 export class AppModule { }

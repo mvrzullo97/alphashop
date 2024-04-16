@@ -5,7 +5,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ArticoliComponent } from './pages/articoli/articoli.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { LogoutComponent } from './pages/logout/logout.component';
-import { RouteGuardService } from 'src/services/route-guard.service';
+import { RouteGuardService } from 'src/app/core/services/route-guard.service';
 import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
 
 const routes: Routes = [
