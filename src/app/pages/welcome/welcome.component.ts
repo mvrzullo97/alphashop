@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
-import { SalutiDataService } from 'src/app/core/services/saluti-data.service';
+import { SalutiDataService } from 'src/app/services/saluti-data.service';
 
 @Component({
   selector: 'app-welcome',
