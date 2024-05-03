@@ -13,14 +13,15 @@ export class ArticoliCardComponent implements OnInit {
   /* @Input() ci permette di trasferire info del componente padre al componente figlio */  
   @Input()
   articolo: IArticoli = {
-    codart: '',
+    codArt: '',
     descrizione: '',
     um: '',
-    pzcart: 0,
-    peso: 0,
+    codStat: '',
+    pzCart: 0,
+    pesoNetto: 0,
     prezzo: 0,
-    active: true,
-    data: new Date(),
+    idStatoArt: '',
+    dataCrezione: new Date(),
     imageUrl: ''
   } ;
 
@@ -34,8 +35,8 @@ export class ArticoliCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editArt = () => this.edit.emit(this.articolo.codart);
+  editArt = () => this.edit.emit(this.articolo.codArt);
 
-  deleteArt = () => this.delete.emit(this.articolo.codart);
+  deleteArt = () => this.delete.emit(this.articolo.codArt);
 
 }

@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 
@@ -12,6 +13,7 @@ import { NgModule } from '@angular/core';
     HeaderComponent,
     FooterComponent,
     JumbotronComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
