@@ -8,7 +8,7 @@
     <header class="card-header">
       <div class="row gx-3">
 					<div class="col-lg-4 col-md-6 me-auto">
-						<input type="text" placeholder="Cerca..." class="form-control">
+						<input type="text" placeholder="Cerca..." class="form-control" [(ngModel)] = "filter" (keyup.enter) = "refresh()">
 					</div>
 					<div class="col-lg-2 col-6 col-md-3">
 						<select class="form-select">
@@ -52,8 +52,9 @@
 							<th scope="col" class="text-end"> Azione </th>
 						</tr>
           </thead>
+
           <tbody>
-            <tr *ngFor="let articolo of articoli$">
+            <tr *ngFor="let articolo of articoli$ | paginate: { itemsPerPage: righe, currentPage: pagina }">
               <td class="tbl-string">{{articolo.codArt}}</td>
               <td class="tbl-string">{{articolo.descrizione}}</td>
               <td class="tbl-string">{{articolo.um}}</td>
@@ -61,10 +62,6 @@
               <td class="tbl-string">{{articolo.pesoNetto}}</td>
               <td class="tbl-string">{{articolo.prezzo | currency : 'EUR'}}</td>
               <td class="tbl-string infoBadge">
-                 <!-- <span 
-                    [ngClass]="articolo.idStatoArt === 'Attivo' ? 'badge rounded-pill alert-success' 
-                    : 'badge rounded-pill alert-danger' ">{{articolo.idStatoArt}}
-                 -->
                  <span
                   [ngClass]="{
                     'badge rounded-pill alert-success' : articolo.idStatoArt === 'Attivo', 
@@ -74,9 +71,9 @@
                  {{articolo.idStatoArt}}
                 </span>
               </td>
-              <td class="tbl-string">{{articolo.dataCrezione | date : 'dd-MM-YYYY'}}</td>
-
+              <td class="tbl-string">{{articolo.dataCreazione | date : 'YYYY-MM-dd'}}</td>
               <td class="text-end">
+
                 <button href="#" class="btn btn-light text-danger">Elimina</button>
 								<div class="dropdown">
 									<button href="#" data-bs-toggle="dropdown" class="btn btn-light">
@@ -87,7 +84,7 @@
 										<li><a class="dropdown-item" href="#">Info</a></li>
 										<li><a class="dropdown-item" href="#">Modifica</a></li>
 									</ul>
-								</div> <!-- dropdown //end -->
+								</div>
 							</td>
 
             </tr>
@@ -95,14 +92,17 @@
         </table>
 
         <nav class="float-end mt-3" aria-label="Page navigation">
-          <ul class="pagination">
-          <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="pagina = $event"
+            previousLabel="Precedente"
+            nextLabel="Successivo">
+          </pagination-controls>
         </nav>
+
+        <div class="alert alert-danger" role="alert" *ngIf="errore">
+          {{errore}}
+        </div>
 
       </div>
     </div>

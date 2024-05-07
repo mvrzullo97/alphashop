@@ -21,7 +21,7 @@ export class ArticoliCardComponent implements OnInit {
     pesoNetto: 0,
     prezzo: 0,
     idStatoArt: '',
-    dataCrezione: new Date(),
+    dataCreazione: new Date(),
     imageUrl: ''
   } ;
 

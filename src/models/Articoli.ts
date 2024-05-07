@@ -7,7 +7,7 @@ export interface IArticoli {
     pesoNetto: number
     prezzo: number
     idStatoArt: string
-    dataCrezione: Date
+    dataCreazione: Date
     imageUrl: string
   }
   

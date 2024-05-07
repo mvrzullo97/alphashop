@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { BrowserModule } from '@angular/platform-browser';
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        CoreModule
+        CoreModule,
+        NgxPaginationModule
     ]
 })
 export class AppModule { }
