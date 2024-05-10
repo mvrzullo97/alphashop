@@ -56,4 +56,9 @@ getArticoliByEan = (barcode: string) => {
     })
   );
 }
+
+delArticoloByCodart = (codArt: string) => {
+  return this.httpClient.delete(`http://${this.server}:${this.port}/api/articoli/elimina/${codArt}`);
+}
+
 }

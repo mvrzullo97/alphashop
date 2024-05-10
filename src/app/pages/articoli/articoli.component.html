@@ -74,7 +74,7 @@
               <td class="tbl-string">{{articolo.dataCreazione | date : 'YYYY-MM-dd'}}</td>
               <td class="text-end">
 
-                <button href="#" class="btn btn-light text-danger">Elimina</button>
+                <button (click)="elimina(articolo.codArt)" class="btn btn-light text-danger">Elimina</button>
 								<div class="dropdown">
 									<button href="#" data-bs-toggle="dropdown" class="btn btn-light">
                     <i class="material-icons md-more_horiz"></i>
@@ -82,7 +82,7 @@
 									<ul class="dropdown-menu">
 										<li><a class="dropdown-item" href="#">Dettaglio</a></li>
 										<li><a class="dropdown-item" href="#">Info</a></li>
-										<li><a class="dropdown-item" href="#">Modifica</a></li>
+										<li><a class="dropdown-item" (click)="modifica(articolo.codArt)">Modifica</a></li>
 									</ul>
 								</div>
 							</td>
@@ -102,6 +102,10 @@
 
         <div class="alert alert-danger" role="alert" *ngIf="errore">
           {{errore}}
+        </div>
+        
+        <div class="alert alert-success" role="alert" *ngIf="okDel">
+          {{mexOkDel}}
         </div>
 
       </div>

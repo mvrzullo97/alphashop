@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IArticoli } from 'src/models/Articoli';
 import { ArticoliService } from 'src/app/services/data/articoli.service';
 import { error } from 'console';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { Observable, map, of } from 'rxjs';
 import { newArray } from '@angular/compiler/src/util';
 
@@ -24,8 +24,12 @@ export class ArticoliComponent implements OnInit {
   filter: string | null = "";
 
   filterType : number = 0;
+
+  codiceArticolo : string = "";
+  okDel : boolean = false;
+  mexOkDel : string = ""
     
-  constructor(private articoliService: ArticoliService, private route: ActivatedRoute) { }
+  constructor(private articoliService: ArticoliService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {  
 
@@ -72,6 +76,7 @@ export class ArticoliComponent implements OnInit {
   refresh = () => {
     if (this.filter){
       this.getArticoli(this.filter);
+      this.okDel = false;
     }
   }
 
@@ -108,4 +113,38 @@ export class ArticoliComponent implements OnInit {
           this.filterType = 0;
       }
   }
+
+  elimina = (codArt : string) => {   
+      this.errore = "";
+      this.codiceArticolo = codArt;
+      console.log(`Eliminazione articolo ${codArt}`);
+
+      this.articoliService.delArticoloByCodart(codArt).subscribe({
+        next : this.handleOkDelete.bind(this),
+        error : this.handleErrDelete.bind(this)
+      }
+    )
+  }
+
+  handleErrDelete(error: any){
+    console.log(error);
+    this.errore = error.error.mex;
+  }
+
+  handleOkDelete(res: any){
+    console.log(res); 
+    this.articoli$ = this.articoli$.filter(item => item.codArt !== this.codiceArticolo);
+    this.codiceArticolo = "";
+
+    this.okDel = true;
+    this.mexOkDel = res.mex;
+  }
+
+  modifica = (codArt : string) => {
+    console.log(`Modifica articolo ${codArt}`);
+
+    this.router.navigate(['gestart', codArt]);
+
+  }
+
 }

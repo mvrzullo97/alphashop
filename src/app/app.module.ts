@@ -14,6 +14,7 @@ import { RegistrazioneComponent } from './pages/registrazione/registrazione.comp
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GestartComponent } from './pages/gestart/gestart.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
         LogoutComponent,
         GridArticoliComponent,
         ArticoliCardComponent,
-        RegistrazioneComponent
+        RegistrazioneComponent,
+        GestartComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
