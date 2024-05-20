@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'articoli', component: ArticoliComponent, canActivate:[RouteGuardService]},
   {path: 'articoli/grid', component: GridArticoliComponent, canActivate:[RouteGuardService]},
   {path:'gestart/:codart', component: GestartComponent,canActivate:[RouteGuardService]},
+  {path:'gestart', component: GestartComponent,canActivate:[RouteGuardService]},
   {path: 'logout', component: LogoutComponent},
   
   {path:'**', component: ErrorComponent}

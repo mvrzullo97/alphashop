@@ -22,7 +22,11 @@ export class ArticoliCardComponent implements OnInit {
     prezzo: 0,
     idStatoArt: '',
     dataCreazione: new Date(),
-    imageUrl: ''
+    imageUrl: '',
+    descStatoArt: '',
+    iva: { idIva: 0, descrizione: '', aliquota: 0 },
+    famAssort: { id: -1, descrizione: '' },
+    barcode: []
   } ;
 
   @Output()
@@ -32,8 +36,7 @@ export class ArticoliCardComponent implements OnInit {
   edit = new EventEmitter();
 
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   editArt = () => this.edit.emit(this.articolo.codArt);
 

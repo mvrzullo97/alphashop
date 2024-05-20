@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { IArticoli } from 'src/models/Articoli';
+import { ApiMsg } from 'src/models/ApiMsg';
+import { IArticoli, ICategoria, IIva } from 'src/models/Articoli';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ getArticoliByDesc = (descrizione: string) => {
   return this.httpClient.get<IArticoli[]>(`http://${this.server}:${this.port}/api/articoli/cerca/descrizione/${descrizione}`)
   .pipe(
     map(response => {
-      response.forEach(item => item.idStatoArt = this.getDesStatoArt(item.idStatoArt))
+      response.forEach(item => item.descStatoArt = this.getDesStatoArt(item.idStatoArt))
 
       return response;
     })
@@ -60,5 +61,17 @@ getArticoliByEan = (barcode: string) => {
 delArticoloByCodart = (codArt: string) => {
   return this.httpClient.delete(`http://${this.server}:${this.port}/api/articoli/elimina/${codArt}`);
 }
+
+
+getIva = () => this.httpClient.get<IIva[]>(`http://${this.server}:${this.port}/api/iva`);
+
+getCategoria = () => this.httpClient.get<ICategoria[]>(`http://${this.server}:${this.port}/api/cat`);
+
+updArticolo = (articolo: IArticoli) => 
+  this.httpClient.put<ApiMsg>(`http://${this.server}:${this.port}/api/articoli/modifica`, articolo);
+
+insArticolo = (articolo: IArticoli) => 
+  this.httpClient.post<ApiMsg>(`http://${this.server}:${this.port}/api/articoli/inserisci`, articolo);
+
 
 }
